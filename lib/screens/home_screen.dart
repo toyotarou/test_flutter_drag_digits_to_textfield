@@ -27,6 +27,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with ControllersMixin<H
           children: <Widget>[
             GestureDetector(
               onTap: () {
+                //----------------------------------// 1
                 appParamNotifier.setFirstOverlayParams(firstEntries: _firstEntries);
 
                 addFirstOverlay(
@@ -63,6 +64,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with ControllersMixin<H
                         children: <Widget>[
                           IconButton(
                             onPressed: () {
+                              //----------------------------------// 2
+
                               appParamNotifier.setSecondOverlayParams(secondEntries: _secondEntries);
 
                               addSecondOverlay(
@@ -74,22 +77,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with ControllersMixin<H
                                 color: Colors.blueGrey.withOpacity(0.3),
                                 initialPosition: Offset(0, context.screenSize.height * 0.7),
 
-                                // widget: GeolocMapControlPanelWidget(
-                                //   date: widget.date,
-                                //   geolocStateList: gStateList,
-                                //   templeInfoList: templeInfoList,
-                                //   mapController: mapController,
-                                //   currentZoomEightTeen: currentZoomEightTeen,
-                                //   selectedHourMap: selectedHourMap,
-                                //   minMaxLatLngMap: <String, double>{
-                                //     'minLat': minLat,
-                                //     'maxLng': maxLng,
-                                //     'maxLat': maxLat,
-                                //     'minLng': minLng,
-                                //   },
-                                //   displayTempMap: widget.displayTempMap,
-                                //   templePhotoDateList: templePhotoDateList,
-                                // ),
                                 widget: Wrap(
                                   alignment: WrapAlignment.center,
                                   // ignore: always_specify_types
@@ -108,6 +95,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with ControllersMixin<H
                                 onPositionChanged: (Offset newPos) => appParamNotifier.updateOverlayPosition(newPos),
                                 fixedFlag: true,
                               );
+
+                              //----------------------------------// 2
                             },
                             icon: const Icon(Icons.pages),
                           ),
@@ -143,6 +132,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with ControllersMixin<H
                   secondEntries: _secondEntries,
                   onPositionChanged: (Offset newPos) => appParamNotifier.updateOverlayPosition(newPos),
                 );
+
+                //----------------------------------// 1
               },
 
               child: Container(
